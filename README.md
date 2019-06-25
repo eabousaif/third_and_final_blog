@@ -19,8 +19,21 @@ Now Rick is one of our loyal customers and has been for quite sometime, so we wa
 
 ### Dot Notation
 
-The variables and methods of an object are called the members of that object and the members of an object are accessed using dot notation. For example if we want to find the first name of our customer, we can do something like this:
+The variables and methods of an object are called the members of that object and the members of an object are accessed using dot notation, which is used most frequently. We access those properties on an object by specifying the name of the object, directly followed by the name of the property we are looking for that belongs to that object(`object.property`). For example if we want to find the first name of our customer, we can do something like this:
 
 ```javascript
   customer1.firstName = "Rick"
+  customer1.lastName = "Sanchez"
 ```
+
+Since we developers are lazy, we can have JavaScript do the work of adding both names and returning our loyal customer's full name:
+
+```javascript
+  fullName = customer1.firstName + " " + customer1.lastName
+  Console.log(fullName)
+  --> Rick Sanchez
+```
+Dot notation is much easier to read than bracket notation and is used more often due to that fact.
+
+### Bracket Notation
+
