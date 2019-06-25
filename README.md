@@ -22,18 +22,48 @@ Now Rick is one of our loyal customers and has been for quite sometime, so we wa
 The variables and methods of an object are called the members of that object and the members of an object are accessed using dot notation, which is used most frequently. We access those properties on an object by specifying the name of the object, directly followed by the name of the property we are looking for that belongs to that object(`object.property`). For example if we want to find the first name of our customer, we can do something like this:
 
 ```javascript
-  customer1.firstName = "Rick"
-  customer1.lastName = "Sanchez"
+  customer1.firstName 
+  // => "Rick"
+  
+  customer1.lastName 
+  // => "Sanchez"
 ```
 
 Since we developers are lazy, we can have JavaScript do the work of adding both names and returning our loyal customer's full name:
 
 ```javascript
   fullName = customer1.firstName + " " + customer1.lastName
+  
   Console.log(fullName)
-  --> Rick Sanchez
+  // => Rick Sanchez
 ```
 Dot notation is much easier to read than bracket notation and is used more often due to that fact.
 
 ### Bracket Notation
 
+With bracket notation, we use the computed member access operator, which is a pair of square brackets []. We can get the same effect from using the dot notation using bracket notation as well:
+
+```javascript
+  customer1['firstName']
+  // => "Rick"
+  
+  customer1['lastName']
+  // => "Sanchez"
+```
+
+Bracket notation is a bit harder to read than dot notation. However, there are two main situations where we use bracket notation. 
+  1. **Whenever we have non-standard keys**. Meaning that the string we used as our key is non-standard, which ranges from having periods in the key, hyphens, symbols, and spaces (Typically we want to camelCaseEverything). For instance:
+  
+  ```javascript
+    customer1.'plumbuses returned: customer_wasn't_a_fan';
+    // ERROR: Uncaught SyntaxError: Unexpected string
+    
+    customer1['plumbuses returned: customer_wasn't_a_fan'];
+    // => "None, everyone has a plumbus in their home"
+  ```
+  2. **Whenever we want to dynamically access properties**. With brackets, we can place any expression inside the brackets and the JavaScript engine will compute its value to figure out which property to access:
+  
+  ```javascript
+    customer1['first' + 'Name']
+    // => "Rick"
+  ```
