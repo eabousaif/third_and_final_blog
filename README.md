@@ -55,7 +55,7 @@ Bracket notation is a bit harder to read than dot notation. However, there are t
   1. **Whenever we have non-standard keys**. Meaning that the string we used as our key is non-standard, which ranges from having periods in the key, hyphens, symbols, and spaces (Typically we want to camelCaseEverything). For instance:
   
   ```javascript
-    customer1.'plumbuses returned: customer_wasn't_a_fan';
+    customer1.'plumbuses returned: customer_wasnt_a_fan';
     // ERROR: Uncaught SyntaxError: Unexpected string
     
     customer1['plumbuses returned: customer_wasn't_a_fan'];
@@ -66,4 +66,24 @@ Bracket notation is a bit harder to read than dot notation. However, there are t
   ```javascript
     customer1['first' + 'Name']
     // => "Rick"
+  ```
+  
+  The main benefit of accessing properties dynamically is the ability to compute the value of variables or constants that we can assign. Circling back to our initial object, let's say we want to assign address as the multiverse:
+  
+  ```javascript
+   const customer1 = {
+    firstName: "Rick",
+    lastName: "Sanchez",
+    address: "C 137, Citadel of Ricks",
+    phone: "555-123-rick",
+    email: "morty_suckz@rickmail.com"
+   }
+  
+   let multiverse = 'address';
+  
+   customer1[multiverse]
+   // => "C 137, Citadel of Ricks"
+  
+   customer1.multiverse
+   // => undefined
   ```
