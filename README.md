@@ -83,7 +83,10 @@ Bracket notation is a bit harder to read than dot notation. However, there are t
   
    customer1[multiverse]
    // => "C 137, Citadel of Ricks"
+   customer1['address']
+   // => "C 137, Citadel of Ricks"
   
    customer1.multiverse
    // => undefined
   ```
+So bracket notation is not as explicit as the dot notation and allows us to pass it keys that either are not in conventional camelCase or include numbers. JS evaluates the first complete expression with square brackets in a statement, runs toString() on it to convert it into a string and then uses that value for the next bracket expression, and just keeps going until there's no more expressions to run.
